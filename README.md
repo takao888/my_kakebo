@@ -1,24 +1,22 @@
-# README
+## userテーブル
+| columns               | types  | options     |
+| --------------------- | ------ | ----------- |
+| name                  | string | null: false |
+| email                 | string | null: false |
+| password              | string | null: false |
+| password_confirmation | string | null: false |
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### association
+- has_many :expenses
 
-Things you may want to cover:
+## expenseテーブル
+| columns  | types      | options           |
+| -------- | ---------- | ----------------- |
+| memo     | text       |                   |
+| day      | date       | null: false       |
+| amount   | string     | null: false       |
+| category | references | null: false       |
+| user     | references | foreign_key: true |
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### association
+- belongs_to :user
